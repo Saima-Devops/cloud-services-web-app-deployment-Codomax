@@ -4,6 +4,8 @@ import psycopg2
 from dotenv import load_dotenv
 from flask import Flask, render_template
 
+from storage import list_bucket_objects
+
 load_dotenv()
 
 app = Flask(__name__)
@@ -146,6 +148,11 @@ def resources():
             "status": "error",
             "message": str(error)
         }, 500
+
+    
+@app.route("/storage-test")
+def storage_test():
+    return list_bucket_objects()
 
 
 if __name__ == "__main__":
