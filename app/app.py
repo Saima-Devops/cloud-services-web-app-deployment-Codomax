@@ -1,5 +1,7 @@
+import json
 import os
 
+import boto3
 import psycopg2
 from dotenv import load_dotenv
 from flask import Flask, render_template
@@ -11,13 +13,36 @@ load_dotenv()
 app = Flask(__name__)
 
 
+def get_database_credentials():
+    secret_name = os.getenv(
+        "AWS_DB_SECRET_NAME",
+        "cloud-app/rdscloud-app/rds"
+    )
+
+    region_name = os.getenv("AWS_REGION", "us-east-1")
+
+    client = boto3.client(
+        "secretsmanager",
+        region_name=region_name
+    )
+
+    response = client.get_secret_value(
+        SecretId=secret_name
+    )
+
+    return json.loads(response["SecretString"])
+
+
 def get_database_connection():
+    credentials = get_database_credentials()
+
     return psycopg2.connect(
         host=os.getenv("DATABASE_HOST"),
-        port=os.getenv("DATABASE_PORT"),
+        port=os.getenv("DATABASE_PORT", "5432"),
         database=os.getenv("DATABASE_NAME"),
-        user=os.getenv("DATABASE_USER"),
-        password=os.getenv("DATABASE_PASSWORD")
+        user=credentials["username"],
+        password=credentials["password"],
+        sslmode="require"
     )
 
 
