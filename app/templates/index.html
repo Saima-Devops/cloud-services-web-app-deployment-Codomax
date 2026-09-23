@@ -34,15 +34,98 @@
         </section>
 
         <section class="card">
+
             <h2>Cloud Architecture</h2>
 
-            <ul>
-                <li>Compute — Cloud VM</li>
-                <li>Database — Managed PostgreSQL</li>
-                <li>Storage — Object Storage</li>
-                <li>Networking — Virtual Network</li>
-                <li>Monitoring — Cloud Monitoring</li>
+            <ul class="architecture-list">
+                <li>
+                    <strong>Compute</strong>
+                    — Cloud VM
+                </li>
+
+                <li>
+                    <strong>Database</strong>
+                    — Managed PostgreSQL
+                </li>
+
+                <li>
+                    <strong>Storage</strong>
+                    — Object Storage
+                </li>
+
+                <li>
+                    <strong>Networking</strong>
+                    — Virtual Network
+                </li>
+
+                <li>
+                    <strong>Monitoring</strong>
+                    — Cloud Monitoring
+                </li>
             </ul>
+
+        </section>
+
+        <section class="card">
+
+            <h2>Cloud Resources</h2>
+
+            {% if database_error %}
+
+                <p class="error">
+                    Database error: {{ database_error }}
+                </p>
+
+            {% elif resources %}
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Environment</th>
+                                <th>Status</th>
+                                <th>Created</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            {% for resource in resources %}
+
+                            <tr>
+                                <td>{{ resource.id }}</td>
+                                <td>{{ resource.name }}</td>
+                                <td>{{ resource.resource_type }}</td>
+                                <td>{{ resource.environment }}</td>
+                                <td>
+                                    <span class="resource-status">
+                                        {{ resource.status }}
+                                    </span>
+                                </td>
+                                <td>{{ resource.created_at }}</td>
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            {% else %}
+
+                <p class="empty">
+                    No resources found.
+                </p>
+
+            {% endif %}
+
         </section>
 
     </main>
