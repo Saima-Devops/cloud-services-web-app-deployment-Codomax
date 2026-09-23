@@ -1,0 +1,9 @@
+- S3 bucket
+- Region
+- Private/public-access configuration
+- Encryption
+- Versioning
+- IAM role
+- Allowed permissions
+- Application endpoints
+- Testing commands
