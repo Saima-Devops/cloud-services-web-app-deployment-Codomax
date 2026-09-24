@@ -1201,3 +1201,85 @@ Reliable Cloud Application
 The practical project demonstrates this complete workflow by deploying a web application to cloud infrastructure and connecting it with managed storage and database services.
 
 The key objective is to understand **how individual cloud services combine to form a secure, manageable, and production-oriented web application architecture**.
+
+-----
+
+# Deployment Evidence
+
+## Application [Live preview]
+
+![Live application](screenshots/12-live-app.png)
+
+## API Endpoints
+
+![health api](screenshots/13-health-api-endpoint.png)
+[Application health check]
+
+![database api](screenshots/14-database-api-endpoint.png)
+[RDS database connectivity test]
+
+![storage api](screenshots/15-s3-api-endpoint.png)
+[Tests S3 connectivity]
+
+---
+
+## AWS Infrastructure
+
+![EC2](screenshots/01-ec2.png)
+[EC2]
+
+---
+
+![VPC](screenshots/02-vpc.png)
+[VPC]
+
+---
+![RDS](screenshots/04-rds.png)
+[RDS]
+
+---
+![S3](screenshots/05-s3.png)
+
+---
+
+## Security
+
+![Security Groups](screenshots/03-web-app-security-groups.png)
+[Web-app Security Group]
+
+![Security Groups](screenshots/03-rds-db-security-groups.png)
+[RDS-DB Security Group]
+
+---
+
+![IAM](screenshots/06-iam.png)
+[IAM]
+
+---
+
+![Secrets Manager](screenshots/07-secrets-manager.png)
+[Secrets Manager]
+
+---
+
+## Monitoring
+
+![CloudWatch Metrics](screenshots/08-cloudwatch-metrics.png)
+[CloudWatch Metrics]
+
+---
+
+![CloudWatch Logs](screenshots/09-cloudwatch-logs.png)
+[CloudWatch Logs]
+
+---
+
+![CloudWatch Alarm](screenshots/10-cloudwatch-alarm.png)
+![CloudWatch Alarm]
+
+---
+
+![SNS](screenshots/11-sns.png)
+[SNS]
+
+---
