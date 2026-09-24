@@ -1283,3 +1283,10 @@ The key objective is to understand **how individual cloud services combine to fo
 [SNS]
 
 ---
+
+** Follow the lab with step by step instructions: [docs > deployment-guide.md](docs/deployment-guide.md) 
+
+---
+
+Prepared by Saima Usman \
+(Jr. DevOps & Cloud Engineer)
